@@ -3,8 +3,9 @@ import AboutImage from "@/public/assets/svg/man-on-headset.svg";
 
 const About = () => {
   return (
-    <section className="py-20 lg:py-40">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
+    <section className="py-20 lg:pt-40 lg:">
+      <div className="container mx-auto px-2">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
         <div className="order-2 lg:order-1 text-center lg:text-left">
           <h2 className="text-3xl md:text-4xl font-bold uppercase leading-tight">
             Bringing you the <span className="text-orange">best</span> audio
@@ -28,6 +29,7 @@ const About = () => {
             height={300}
             priority
           />
+          </div>
         </div>
       </div>
     </section>

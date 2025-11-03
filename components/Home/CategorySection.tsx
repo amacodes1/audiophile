@@ -62,11 +62,13 @@ const CategoryCard = ({
 
 const CategorySection = () => {
   return (
-    <section className="py-20 lg:py-40">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-        {categories.map((category) => (
-          <CategoryCard key={category.name} {...category} />
-        ))}
+    <section className="py-20 lg:pt-[120px] lg:pb-[166px]">
+      <div className="container mx-auto px-2">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-[30px]">
+          {categories.map((category) => (
+            <CategoryCard key={category.name} {...category} />
+          ))}
+        </div>
       </div>
     </section>
   );

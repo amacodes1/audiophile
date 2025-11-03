@@ -7,7 +7,7 @@ import Logo from "@/public/assets/tsxsvgs/Logo";
 const Footer = () => {
   return (
     <footer className="bg-black text-white mt-20">
-      <div className="container mx-auto px-6 md:px-10 lg:px-40 py-16">
+      <div className="container mx-auto px-2 py-16">
         <div className="relative">
           <div className="absolute -top-16 left-0 h-1 w-24 bg-orange"></div>
         </div>
@@ -29,7 +29,7 @@ const Footer = () => {
           </nav>
         </div>
 
-        <p className="text-white/50 my-8 md:max-w-xl">
+        <p className="text-white/50 my-8 font-medium text-[15px] leading-[25px] md:max-w-xl">
           Audiophile is an all in one stop to fulfill your audio needs.
           We&apos;re a small team of music lovers and sound specialists who are
           devoted to helping you get the most out of personal audio. Come and
@@ -37,8 +37,8 @@ const Footer = () => {
         </p>
 
         <div className="flex flex-col md:flex-row justify-between items-center mt-12">
-          <p className="text-white/50 font-bold mb-8 md:mb-0">
-            Copyright {new Date().getFullYear()}. All Rights Reserved
+          <p className="text-white/50 font-bold text-[15px] mb-8 md:mb-0">
+            Copyright 2021. All Rights Reserved
           </p>
           <div className="flex gap-4">
             <a
@@ -50,8 +50,8 @@ const Footer = () => {
                 src={Facebook}
                 className="cursor-pointer"
                 alt="facebook icon"
-                width={300}
-                height={300}
+                width={24}
+                height={24}
                 priority
               />
             </a>
@@ -64,8 +64,8 @@ const Footer = () => {
                 src={Twitter}
                 className="cursor-pointer"
                 alt="x icon"
-                width={300}
-                height={300}
+                width={24}
+                height={24}
                 priority
               />
             </a>
@@ -78,8 +78,8 @@ const Footer = () => {
                 src={Instagram}
                 className="cursor-pointer"
                 alt="instagram icon"
-                width={300}
-                height={300}
+                width={24}
+                height={24}
                 priority
               />
             </a>
