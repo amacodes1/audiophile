@@ -49,3 +49,11 @@ export interface Category {
   href: string;
   image: string;
 }
+
+export interface CartItem {
+  id: string;
+  name: string;
+  price: number;
+  quantity: number;
+  image: string;
+}

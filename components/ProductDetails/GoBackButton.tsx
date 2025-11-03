@@ -8,7 +8,7 @@ const GoBackButton = () => {
   return (
     <button 
       onClick={() => router.back()}
-      className="text-black/50 hover:text-orange transition-colors"
+      className="text-black/50 hover:text-orange transition-colors cursor-pointer"
     >
       Go Back
     </button>

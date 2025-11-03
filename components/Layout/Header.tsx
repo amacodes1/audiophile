@@ -6,26 +6,37 @@ import Cart from "@/public/assets/svg/cart.svg"
 import { useState } from "react";
 import Image from "next/image";
 import Logo from "@/public/assets/tsxsvgs/Logo";
+import CartModal from "../Cart/CartModal";
+import { useAppSelector, useAppDispatch } from "../../store/hooks";
+import { clearCart, updateQuantity } from "../../store/cartSlice";
+import Link from "next/link";
 
 const NavLinks = () => (
   <>
-    <a href="/" className="hover:text-orange transition-colors">
+    <Link href="/" className="hover:text-orange transition-colors">
       HOME
-    </a>
-    <a href="/categories?category=headphones" className="hover:text-orange transition-colors">
+    </Link>
+    <Link href="/categories?category=headphones" className="hover:text-orange transition-colors">
       HEADPHONES
-    </a>
-    <a href="/categories?category=speakers" className="hover:text-orange transition-colors">
+    </Link>
+    <Link href="/categories?category=speakers" className="hover:text-orange transition-colors">
       SPEAKERS
-    </a>
-    <a href="/categories?category=earphones" className="hover:text-orange transition-colors">
+    </Link>
+    <Link href="/categories?category=earphones" className="hover:text-orange transition-colors">
       EARPHONES
-    </a>
+    </Link>
   </>
 );
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isCartOpen, setIsCartOpen] = useState(false);
+  const dispatch = useAppDispatch();
+  const cartItems = useAppSelector(state => state.cart.items);
+  const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  
+  const handleClearCart = () => dispatch(clearCart());
+  const handleUpdateQuantity = (id: string, quantity: number) => dispatch(updateQuantity({ id, quantity }));
 
   return (
     <header className="bg-black-tertiary sticky top-0 z-50">
@@ -43,15 +54,26 @@ const Header = () => {
           <nav className="hidden md:flex md:gap-8 uppercase text-sm tracking-wider-sm font-bold">
             <NavLinks />
           </nav>
-          <div>
-            <Image
-              src={Cart}
-              className="cursor-pointer"
-              alt="cart icon"
-              width={23.33} 
-              height={15.83} 
-              priority 
-            />
+          <div className="relative">
+            <button onClick={() => setIsCartOpen(!isCartOpen)}>
+              <Image
+                src={Cart}
+                className="cursor-pointer"
+                alt="cart icon"
+                width={23.33} 
+                height={15.83} 
+                priority 
+              />
+            </button>
+            {isCartOpen && (
+              <CartModal
+                cartItems={cartItems}
+                total={total}
+                onClose={() => setIsCartOpen(false)}
+                onRemoveAll={handleClearCart}
+                onUpdateQuantity={handleUpdateQuantity}
+              />
+            )}
           </div>
         </div>
         {isMenuOpen && (

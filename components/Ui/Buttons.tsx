@@ -3,12 +3,13 @@ import React from "react";
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: "primary" | "secondary" | "tertiary";
   children: React.ReactNode;
+  className?: string;
 }
 
 const Button: React.FC<ButtonProps> = ({
   variant = "primary",
   children,
-  className,
+  className = "",
   ...props
 }) => {
   const baseStyle =

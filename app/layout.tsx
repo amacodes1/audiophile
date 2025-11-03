@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import 'react-toastify/dist/ReactToastify.css';
 import Header from "../components/Layout/Header";
 import Footer from "../components/Layout/Footer";
 import About from "@/components/Layout/AboutSection";
+import Providers from '../components/Providers';
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -16,13 +18,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className=""
-      >
-        <Header />
-        {children}
-        <About />
-        <Footer />
+      <body className="">
+        <Providers>
+          <Header />
+          {children}
+          <About />
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
