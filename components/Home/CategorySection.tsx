@@ -8,17 +8,17 @@ const categories = [
   {
     name: "Headphones",
     image: Headphone,
-    link: "#",
+    link: "/categories?category=headphones",
   },
   {
     name: "Speakers",
     image: Speaker,
-    link: "#",
+    link: "/categories?category=speakers",
   },
   {
     name: "Earphones",
     image: Earphone,
-    link: "#",
+    link: "/categories?category=earphones",
   },
 ];
 

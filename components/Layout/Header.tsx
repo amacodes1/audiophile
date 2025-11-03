@@ -9,16 +9,16 @@ import Logo from "@/public/assets/tsxsvgs/Logo";
 
 const NavLinks = () => (
   <>
-    <a href="#" className="hover:text-orange transition-colors">
+    <a href="/" className="hover:text-orange transition-colors">
       HOME
     </a>
-    <a href="#" className="hover:text-orange transition-colors">
+    <a href="/categories?category=headphones" className="hover:text-orange transition-colors">
       HEADPHONES
     </a>
-    <a href="#" className="hover:text-orange transition-colors">
+    <a href="/categories?category=speakers" className="hover:text-orange transition-colors">
       SPEAKERS
     </a>
-    <a href="#" className="hover:text-orange transition-colors">
+    <a href="/categories?category=earphones" className="hover:text-orange transition-colors">
       EARPHONES
     </a>
   </>
