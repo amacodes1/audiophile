@@ -42,15 +42,19 @@ export async function POST(request: NextRequest) {
       },
     });
     
-    // Send confirmation email
-    await sendOrderConfirmationEmail({
-      customerName: body.customerDetails.name,
-      customerEmail: body.customerDetails.email,
-      orderId,
-      items: body.items,
-      shippingAddress: `${body.shippingDetails.address}, ${body.shippingDetails.city}, ${body.shippingDetails.zip}, ${body.shippingDetails.country}`,
-      grandTotal,
-    });
+    // Send confirmation email (optional - don't fail order if email fails)
+    try {
+      await sendOrderConfirmationEmail({
+        customerName: body.customerDetails.name,
+        customerEmail: body.customerDetails.email,
+        orderId,
+        items: body.items,
+        shippingAddress: `${body.shippingDetails.address}, ${body.shippingDetails.city}, ${body.shippingDetails.zip}, ${body.shippingDetails.country}`,
+        grandTotal,
+      });
+    } catch (emailError) {
+      console.warn('Email sending failed:', emailError);
+    }
     
     return NextResponse.json({ 
       success: true, 

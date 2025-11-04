@@ -68,7 +68,7 @@ const Summary = () => {
         type="submit"
         form="checkout-form"
         disabled={cartItems.length === 0}
-        className="w-full bg-orange text-white uppercase font-bold text-[13px] tracking-wide py-4 hover:bg-orange-light disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
+        className="w-full bg-orange text-white cursor-pointer uppercase font-bold text-[13px] tracking-wide py-4 hover:bg-orange-light disabled:bg-gray-400 disabled:cursor-not-allowed transition-colors"
       >
         {cartItems.length === 0 ? 'Cart is Empty' : 'Continue & Pay'}
       </button>

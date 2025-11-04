@@ -1,6 +1,6 @@
 "use client";
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { CartItem } from '../../types';
 import QuantitySelector from '../ProductDetails/QuantitySelector';
@@ -16,6 +16,13 @@ interface CartModalProps {
 
 const CartModal: React.FC<CartModalProps> = ({ cartItems, total, onClose, onRemoveAll, onUpdateQuantity }) => {
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
+  
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
 
   return (
     <>

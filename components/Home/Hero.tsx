@@ -17,7 +17,9 @@ const Hero = () => {
             Experience natural, lifelike audio and exceptional build quality
             made for the passionate music enthusiast.
           </p>
-          <Button variant="primary">See Product</Button>
+          <a href="/product?slug=xx99-mark-two-headphones">
+            <Button variant="primary">See Product</Button>
+          </a>
         </div>
       </div>
     </section>

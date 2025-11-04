@@ -83,8 +83,8 @@ export const sendOrderConfirmationEmail = async (data: OrderEmailData) => {
   `;
 
   await transporter.sendMail({
-    from: process.env.FROM_EMAIL,
-    to: data.customerEmail,
+    from: `"Audiophile Store" <${process.env.FROM_EMAIL}>`,
+    to: data.customerEmail, // Customer's email from checkout form
     subject: `Order Confirmation - #${data.orderId}`,
     html: htmlTemplate,
   });

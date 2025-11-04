@@ -1,16 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { Check } from 'lucide-react';
-import { useAppSelector } from '../../store/hooks';
 import { useRouter } from 'next/navigation';
+import { CartItem } from '../../types';
 
 interface OrderConfirmationModalProps {
   onClose: () => void;
+  orderItems: CartItem[];
+  orderId: string;
 }
 
-const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ onClose }) => {
-  const cartItems = useAppSelector(state => state.cart.items);
+const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ onClose, orderItems, orderId }) => {
+  const cartItems = orderItems;
   const router = useRouter();
+  
+  useEffect(() => {
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, []);
   
   const firstItem = cartItems[0];
   const otherItemsCount = cartItems.length - 1;
@@ -33,8 +42,8 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ onClose
   if (!firstItem) return null;
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50 p-6">
-      <div className="bg-white rounded-lg p-8 md:p-12 max-w-lg w-full">
+    <div className="fixed inset-0 bg-black/40 flex items-center justify-center z-50 p-6 overflow-y-auto">
+      <div className="bg-white rounded-lg p-8 md:p-12 max-w-lg w-[327px] max-h-[90vh] sm:w-[540px] overflow-y-auto my-auto">
         <div className="w-16 h-16 bg-orange rounded-full flex items-center justify-center mb-8">
           <Check size={32} className="text-white" strokeWidth={4} />
         </div>
@@ -70,7 +79,7 @@ const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ onClose
 
         <button
           onClick={handleBackToHome}
-          className="w-full bg-orange text-white uppercase font-bold text-[13px] tracking-wide py-4 hover:bg-orange-light transition-colors"
+          className="w-full bg-orange text-white cursor-pointer uppercase font-bold text-[13px] tracking-wide py-4 hover:bg-orange-light transition-colors"
         >
           Back to Home
         </button>

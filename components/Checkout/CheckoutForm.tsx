@@ -11,6 +11,7 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { clearCart } from '../../store/cartSlice';
 import { createOrder } from '../../lib/orderService';
 import { useRouter } from 'next/navigation';
+import { CartItem } from '../../types';
 
 
 
@@ -22,6 +23,7 @@ const CheckoutForm = () => {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [showConfirmation, setShowConfirmation] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [orderData, setOrderData] = useState<{items: CartItem[], orderId: string} | null>(null);
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector(state => state.cart.items);
   const router = useRouter();
@@ -57,8 +59,10 @@ const CheckoutForm = () => {
       
       if (result.success) {
         toast.success('Order placed successfully!');
+        // Store order data before clearing cart
+        setOrderData({ items: cartItems, orderId: result.orderId });
         dispatch(clearCart());
-        router.push(`/orders/${result.orderId}`);
+        setShowConfirmation(true);
       } else {
         throw new Error(result.message || 'Failed to create order');
       }
@@ -98,7 +102,7 @@ const CheckoutForm = () => {
               label="Name" 
               id="name"
               name="name" 
-              placeholder="Alexei Ward"
+              placeholder="Enter your Full name"
               value={formData.name || ''}
               onChange={handleInputChange}
               error={errors.name}
@@ -108,7 +112,7 @@ const CheckoutForm = () => {
               id="email"
               name="email" 
               type="email" 
-              placeholder="alexei@mail.com"
+              placeholder="Enter your email"
               value={formData.email || ''}
               onChange={handleInputChange}
               error={errors.email}
@@ -118,7 +122,7 @@ const CheckoutForm = () => {
               id="phone"
               name="phone" 
               type="tel" 
-              placeholder="+1 202-555-0136"
+              placeholder="Enter your phone number"
               value={formData.phone || ''}
               onChange={handleInputChange}
               error={errors.phone}
@@ -134,7 +138,7 @@ const CheckoutForm = () => {
                 label="Your Address" 
                 id="address"
                 name="address" 
-                placeholder="1137 Williams Avenue"
+                placeholder="Enter your address"
                 value={formData.address || ''}
                 onChange={handleInputChange}
                 error={errors.address}
@@ -145,7 +149,7 @@ const CheckoutForm = () => {
                 label="ZIP Code" 
                 id="zip"
                 name="zip" 
-                placeholder="10001"
+                placeholder="Enter your Zip Code"
                 value={formData.zip || ''}
                 onChange={handleInputChange}
                 error={errors.zip}
@@ -154,7 +158,7 @@ const CheckoutForm = () => {
                 label="City" 
                 id="city"
                 name="city" 
-                placeholder="New York"
+                placeholder="Enter your City"
                 value={formData.city || ''}
                 onChange={handleInputChange}
                 error={errors.city}
@@ -163,7 +167,7 @@ const CheckoutForm = () => {
                 label="Country" 
                 id="country"
                 name="country" 
-                placeholder="United States"
+                placeholder="Enter your Country"
                 value={formData.country || ''}
                 onChange={handleInputChange}
                 error={errors.country}
@@ -201,7 +205,7 @@ const CheckoutForm = () => {
                 label="e-Money Number" 
                 id="e-money-number" 
                 name="eMoneyNumber"
-                placeholder="238521993"
+                placeholder="Enyter your e-Money number"
                 value={formData.eMoneyNumber || ''}
                 onChange={handleInputChange}
                 error={errors.eMoneyNumber}
@@ -210,7 +214,7 @@ const CheckoutForm = () => {
                 label="e-Money PIN" 
                 id="e-money-pin" 
                 name="eMoneyPin"
-                placeholder="6891"
+                placeholder="Enter your pin"
                 value={formData.eMoneyPin || ''}
                 onChange={handleInputChange}
                 error={errors.eMoneyPin}
@@ -225,9 +229,13 @@ const CheckoutForm = () => {
           )}
         </div>
       </form>
-      {showConfirmation && (
+      {showConfirmation && orderData && (
         <div className="fixed inset-0 z-[9999]">
-          <OrderConfirmationModal onClose={handleCloseConfirmation} />
+          <OrderConfirmationModal 
+            onClose={handleCloseConfirmation} 
+            orderItems={orderData.items}
+            orderId={orderData.orderId}
+          />
         </div>
       )}
     </div>
