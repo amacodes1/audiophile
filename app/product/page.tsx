@@ -17,7 +17,7 @@ export default function ProductPage() {
       <div className="container mx-auto px-2">
         <GoBackButton />
       </div>
-      <ProductDetail />
+      <ProductDetail productSlug={productSlug} />
       <ProductFeatures />
       <ProductGallery />
       <YouMayAlsoLike />

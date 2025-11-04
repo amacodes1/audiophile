@@ -5,6 +5,8 @@ import Header from "../components/Layout/Header";
 import Footer from "../components/Layout/Footer";
 import About from "@/components/Layout/AboutSection";
 import Providers from '../components/Providers';
+import { ConvexClientProvider } from "./ConvexClientProvider";
+
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,12 +21,14 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className="">
-        <Providers>
-          <Header />
-          {children}
-          <About />
-          <Footer />
-        </Providers>
+        <ConvexClientProvider>
+          <Providers>
+            <Header />
+            {children}
+            <About />
+            <Footer />
+          </Providers>
+        </ConvexClientProvider>
       </body>
     </html>
   );

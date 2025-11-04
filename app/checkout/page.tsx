@@ -18,10 +18,12 @@ export default function CheckoutPage() {
         </button>
         
         <div className="flex flex-col lg:flex-row gap-8">
-          <div id="checkout-form">
+          <div className="flex-1">
             <CheckoutForm />
           </div>
-          <Summary />
+          <div className="lg:w-1/3">
+            <Summary />
+          </div>
         </div>
       </div>
     </div>
