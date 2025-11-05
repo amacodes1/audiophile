@@ -3,7 +3,7 @@ import "./globals.css";
 import 'react-toastify/dist/ReactToastify.css';
 import Header from "../components/Layout/Header";
 import Footer from "../components/Layout/Footer";
-import About from "@/components/Layout/AboutSection";
+import ConditionalAbout from "../components/Layout/ConditionalAbout";
 import Providers from '../components/Providers';
 import { ConvexClientProvider } from "./ConvexClientProvider";
 
@@ -25,7 +25,7 @@ export default function RootLayout({
           <Providers>
             <Header />
             {children}
-            <About />
+            <ConditionalAbout />
             <Footer />
           </Providers>
         </ConvexClientProvider>

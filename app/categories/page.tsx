@@ -16,7 +16,7 @@ export default function CategoriesPage() {
   return (
     <div>
       <PageBanner title={capitalizedCategory} />
-      <div className="py-16">
+      <div className="py-16 px-6">
         {categoryProducts.map((product, index) => (
           <ProductFeature key={product.id} product={product} index={index} />
         ))}

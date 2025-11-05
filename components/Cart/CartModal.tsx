@@ -27,7 +27,7 @@ const CartModal: React.FC<CartModalProps> = ({ cartItems, total, onClose, onRemo
   return (
     <>
       <div className="fixed inset-0 bg-black/40 z-40" onClick={onClose} />
-      <div className="absolute top-20 right-0 bg-white rounded-lg p-8 w-[calc(100%-48px)] md:w-[377px] z-50 mx-6 md:mx-0">
+      <div className="absolute top-20 right-0 bg-white rounded-lg p-8 w-[327px] h-[488px] md:w-[377px] z-50 mx-6 md:mx-0">
         <div className="flex justify-between items-center mb-8">
           <h2 className="text-lg font-bold text-black-tertiary uppercase tracking-wide">Cart ({cartCount})</h2>
           {cartItems.length > 0 && (

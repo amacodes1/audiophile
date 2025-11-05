@@ -40,17 +40,18 @@ const Header = () => {
 
   return (
     <header className="bg-black-tertiary sticky top-0 z-50">
-      <div className="container mx-auto px-2 text-white">
+      <div className="container mx-auto px-6 text-white">
         <div className="flex items-center justify-between h-24 border-b border-white/20">
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
+              className="cursor-pointer"
             >
               {isMenuOpen ? <X /> : <Hamburger />}
             </button>
           </div>
-          <div className="shrink-0 cursor-pointer"><Logo /></div>
+          <Link href="/" className="shrink-0 cursor-pointer"><Logo /></Link>
           <nav className="hidden md:flex md:gap-8 uppercase text-sm tracking-wider-sm font-bold">
             <NavLinks />
           </nav>

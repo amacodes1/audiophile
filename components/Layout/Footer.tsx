@@ -7,13 +7,15 @@ import Logo from "@/public/assets/tsxsvgs/Logo";
 const Footer = () => {
   return (
     <footer className="bg-black text-white mt-20">
-      <div className="container mx-auto px-2 py-16">
+      <div className="container mx-auto px-6 py-16">
         <div className="relative">
-          <div className="absolute -top-16 left-0 h-1 w-24 bg-orange"></div>
+          <div className="absolute -top-16 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 h-1 w-24 bg-orange"></div>
         </div>
-        <div className="flex flex-col md:flex-row justify-between items-start">
-          <div className="mb-8 md:mb-0"><Logo /></div>
-          <nav className="flex flex-col md:flex-row gap-4 md:gap-8 uppercase text-sm tracking-wider-sm font-bold">
+        <div className="flex flex-col md:flex-row justify-between items-center">
+          <div className="mb-8 md:mb-0">
+            <Logo />
+          </div>
+          <nav className="flex flex-col items-center md:items-start md:flex-row gap-4 md:gap-8 uppercase text-sm tracking-wider-sm font-bold">
             <a href="#" className="hover:text-orange transition-colors">
               Home
             </a>

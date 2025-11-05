@@ -9,7 +9,7 @@ export default function CheckoutPage() {
 
   return (
     <div className="bg-gray-100 min-h-screen py-16">
-      <div className="container mx-auto px-2">
+      <div className="container mx-auto px-6">
         <button 
           onClick={() => router.back()}
           className="text-black/50 curs hover:text-orange transition-colors mb-8"
