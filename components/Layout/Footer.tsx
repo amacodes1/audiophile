@@ -7,7 +7,7 @@ import Logo from "@/public/assets/tsxsvgs/Logo";
 const Footer = () => {
   return (
     <footer className="bg-black text-white mt-20">
-      <div className="container mx-auto px-6 py-16">
+      <div className="container mx-auto px-6 md:px-2 py-16">
         <div className="relative">
           <div className="absolute -top-16 left-1/2 -translate-x-1/2 sm:left-0 sm:translate-x-0 h-1 w-24 bg-orange"></div>
         </div>

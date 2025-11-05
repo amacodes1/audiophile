@@ -40,7 +40,7 @@ const Header = () => {
 
   return (
     <header className="bg-black-tertiary sticky top-0 z-50">
-      <div className="container mx-auto px-6 text-white">
+      <div className="container mx-auto px-6 md:px-2 text-white">
         <div className="flex items-center justify-between h-24 border-b border-white/20">
           <div className="md:hidden">
             <button
