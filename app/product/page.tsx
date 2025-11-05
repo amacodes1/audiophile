@@ -13,15 +13,19 @@ export default function ProductPage() {
   const productSlug = searchParams.get('slug') || '';
 
   return (
-    <div className="py-16 space-y-16">
-      <div className="container mx-auto px-2">
+    <div className="py-16">
+      <div className="container mx-auto px-2 mb-16">
         <GoBackButton />
       </div>
-      <ProductDetail productSlug={productSlug} />
-      <ProductFeatures />
-      <ProductGallery />
-      <YouMayAlsoLike />
-      <CategorySection />
+      <div className="space-y-16 mb-96">
+        <ProductDetail productSlug={productSlug} />
+        <ProductFeatures productSlug={productSlug} />
+        <ProductGallery productSlug={productSlug} />
+      </div>
+      <div className="space-y-16">
+        <YouMayAlsoLike />
+        <CategorySection />
+      </div>
     </div>
   );
 }

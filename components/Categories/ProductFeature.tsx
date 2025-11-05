@@ -1,6 +1,7 @@
 import React from 'react';
 import { Product } from '../../types';
 import Button from '../Ui/Buttons';
+import Image from 'next/image';
 
 interface ProductFeatureProps {
   product: Product;
@@ -13,11 +14,27 @@ const ProductFeature: React.FC<ProductFeatureProps> = ({ product, index }) => {
   return (
     <div className={`container mx-auto px-2 py-16 lg:py-20 flex flex-col lg:flex-row items-center gap-12 lg:gap-28 ${isReversed ? 'lg:flex-row-reverse' : ''}`}>
       <div className="lg:w-1/2 bg-gray-md">
-        <picture>
-          <source media="(min-width: 1024px)" srcSet={product.image.desktop} />
-          <source media="(min-width: 768px)" srcSet={product.image.tablet} />
-          <img src={product.image.mobile} alt={product.name} className="rounded-lg w-full h-auto object-cover" />
-        </picture>
+        <Image 
+          src={product.image.mobile} 
+          alt={product.name} 
+          width={327} 
+          height={352} 
+          className="w-full h-auto object-cover rounded-lg md:hidden" 
+        />
+        <Image 
+          src={product.image.tablet} 
+          alt={product.name} 
+          width={281} 
+          height={352} 
+          className="w-full h-auto object-cover rounded-lg hidden md:block lg:hidden" 
+        />
+        <Image 
+          src={product.image.desktop} 
+          alt={product.name} 
+          width={540} 
+          height={560} 
+          className="w-full h-auto object-cover rounded-lg hidden lg:block" 
+        />
       </div>
       <div className="lg:w-1/2 text-center lg:text-left">
         {product.new && (

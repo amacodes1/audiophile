@@ -3,7 +3,7 @@ import AboutImage from "@/public/assets/svg/man-on-headset.svg";
 
 const About = () => {
   return (
-    <section className="py-20 lg:pt-40 lg:">
+    <section className="py-10 lg:pt-10">
       <div className="container mx-auto px-2">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-32 items-center">
         <div className="order-2 lg:order-1 text-center lg:text-left">

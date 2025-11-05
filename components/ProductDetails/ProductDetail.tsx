@@ -34,7 +34,7 @@ const ProductDetail = ({ productSlug }: ProductDetailProps) => {
   return (
     <div className="container mx-auto px-2 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
       <div className="bg-gray-200 rounded-lg overflow-hidden">
-        <Image src={product.image.desktop} alt={product.name} className="w-full h-auto" />
+        <Image src={product.image.desktop} width={500} height={500} alt={product.name}  />
       </div>
       <div>
         {product.new && (
