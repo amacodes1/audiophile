@@ -45,7 +45,7 @@ const CategoryCard = ({
     </h3>
     <a
       href={link}
-      className="inline-flex items-center gap-2 text-black/50 font-bold uppercase text-sm tracking-wide-xs group"
+      className="inline-flex items-center gap-2 text-black/50 hover:text-orange font-bold uppercase text-sm tracking-wide-xs group"
     >
       Shop
       <Image

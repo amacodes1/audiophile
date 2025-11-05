@@ -70,11 +70,13 @@ const CheckoutForm = () => {
     } catch (error: unknown) {
       console.error('Order submission error:', error);
       
-      if (error && typeof error === 'object' && 'errors' in error) {
-        const zodError = error as { errors: Array<{ path: string[]; message: string }> };
+      if (error && typeof error === 'object' && 'name' in error && error.name === 'ZodError') {
+        const zodError = error as unknown as { errors: Array<{ path: string[]; message: string }> };
         const fieldErrors: Record<string, string> = {};
         zodError.errors?.forEach((err) => {
-          fieldErrors[err.path[0]] = err.message;
+          if (err.path && err.path.length > 0) {
+            fieldErrors[err.path[0]] = err.message;
+          }
         });
         setErrors(fieldErrors);
         toast.error('Please fill in all required fields');
