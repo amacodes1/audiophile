@@ -12,7 +12,7 @@ export default function CheckoutPage() {
       <div className="container mx-auto px-6">
         <button 
           onClick={() => router.back()}
-          className="text-black/50 curs hover:text-orange transition-colors mb-8"
+          className="text-black/50 cursor-pointer hover:text-orange transition-colors mb-8"
         >
           Go Back
         </button>

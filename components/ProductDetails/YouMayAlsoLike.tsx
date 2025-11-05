@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { productData } from '../../data/productData';
 import Button from '../Ui/Buttons';
 
@@ -11,7 +12,7 @@ const YouMayAlsoLike = () => {
         {suggestions.map((item, index) => (
           <div key={index} className="flex flex-col items-center">
             <div className="bg-gray-200 rounded-lg mb-8 w-full">
-              <img src={item.image} alt={item.name} className="rounded-lg w-full" />
+              <Image src={item.image} alt={item.name} className="rounded-lg w-full" />
             </div>
             <h3 className="text-2xl font-bold uppercase mb-8">{item.name}</h3>
             <Button variant="primary">See Product</Button>

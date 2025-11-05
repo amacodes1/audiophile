@@ -1,12 +1,10 @@
 import Button from "../Ui/Buttons";
-// import HeroImage from "@/public/assets/svg/hero-headset.svg"
-// import Image from "next/image";
 
 const Hero = () => {
   return (
     <section style={{ backgroundImage: "url('/assets/svg/hero-background.svg')" }} className="bg-cover bg-center bg-no-repeat">
-      <div className="container mx-auto px-2 relative h-[600px] flex gap-[46.6px] items-center">
-        <div className="text-white w-[398px] h-[346px] text-center lg:text-left">
+      <div className="container mx-auto px-2 relative h-[600px] flex gap-[46.6px] items-center justify-center lg:justify-start">
+        <div className="text-white w-full max-w-[398px] h-[346px] text-center lg:text-left z-10">
           <p className="uppercase text-[14px] leading-[19px] tracking-[0.625em] text-white/50 mb-4">
             New Product
           </p>

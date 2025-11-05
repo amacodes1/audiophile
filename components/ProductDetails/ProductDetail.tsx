@@ -6,6 +6,7 @@ import Button from '../Ui/Buttons';
 import QuantitySelector from './QuantitySelector';
 import { useAppDispatch } from '../../store/hooks';
 import { addToCart } from '../../store/cartSlice';
+import Image from 'next/image';
 
 interface ProductDetailProps {
   productSlug: string;
@@ -33,7 +34,7 @@ const ProductDetail = ({ productSlug }: ProductDetailProps) => {
   return (
     <div className="container mx-auto px-2 grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-16 items-center">
       <div className="bg-gray-200 rounded-lg overflow-hidden">
-        <img src={product.image.desktop} alt={product.name} className="w-full h-auto" />
+        <Image src={product.image.desktop} alt={product.name} className="w-full h-auto" />
       </div>
       <div>
         {product.new && (

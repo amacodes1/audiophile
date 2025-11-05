@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server';
 import { ConvexHttpClient } from 'convex/browser';
 import { api } from '../../../convex/_generated/api';
 import { sendOrderConfirmationEmail } from '../../../lib/email';
+import { CartItem } from '../../../types';
 
 const convex = new ConvexHttpClient(process.env.NEXT_PUBLIC_CONVEX_URL!);
 
@@ -13,7 +14,7 @@ export async function POST(request: NextRequest) {
     const orderId = `ORD-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
     
     // Calculate totals
-    const subtotal = body.items.reduce((sum: number, item: any) => sum + (item.price * item.quantity), 0);
+    const subtotal = body.items.reduce((sum: number, item: CartItem) => sum + (item.price * item.quantity), 0);
     const shipping = 50;
     const vat = subtotal * 0.20;
     const grandTotal = subtotal + shipping;

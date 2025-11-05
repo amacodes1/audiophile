@@ -3,14 +3,14 @@
 import React, { useState } from 'react';
 import FormInput from '../Ui/FormInput';
 import RadioInput from '../Ui/RadioInput';
-import CashOnDeliveryIcon from './CashOnDeliveryIcon';
+import CashOnDeliveryIcon from '../../public/assets/tsxsvgs/CashOnDeliveryIcon';
 import OrderConfirmationModal from './OrderConfirmationModal';
 import { checkoutSchema, CheckoutFormData } from '../../lib/validations';
 import { toast } from 'react-toastify';
 import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { clearCart } from '../../store/cartSlice';
 import { createOrder } from '../../lib/orderService';
-import { useRouter } from 'next/navigation';
+// import { useRouter } from 'next/navigation';
 import { CartItem } from '../../types';
 
 
@@ -26,7 +26,7 @@ const CheckoutForm = () => {
   const [orderData, setOrderData] = useState<{items: CartItem[], orderId: string} | null>(null);
   const dispatch = useAppDispatch();
   const cartItems = useAppSelector(state => state.cart.items);
-  const router = useRouter();
+  // const router = useRouter();
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -230,7 +230,7 @@ const CheckoutForm = () => {
         </div>
       </form>
       {showConfirmation && orderData && (
-        <div className="fixed inset-0 z-[9999]">
+        <div className="fixed inset-0 z-9999">
           <OrderConfirmationModal 
             onClose={handleCloseConfirmation} 
             orderItems={orderData.items}

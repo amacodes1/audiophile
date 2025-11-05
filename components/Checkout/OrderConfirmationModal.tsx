@@ -10,7 +10,7 @@ interface OrderConfirmationModalProps {
   orderId: string;
 }
 
-const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ onClose, orderItems, orderId }) => {
+const OrderConfirmationModal: React.FC<OrderConfirmationModalProps> = ({ onClose, orderItems }) => {
   const cartItems = orderItems;
   const router = useRouter();
   
